@@ -1,0 +1,194 @@
+{% load static %}
+{% block start %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    body{
+        background-color: rgb(210, 190, 190);
+    }
+    .serv_nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 7%;
+        width: 100%;
+        background-color: #80808057;
+        display: flex;
+        background-color: antiquewhite;
+    
+     /* Keeps items from touching the edges */
+    }
+
+    .but a:hover {
+        background-color:  rgb(139, 2, 2);
+    }
+    .but{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+        
+    }
+    .but a{
+        color: white;
+        text-decoration: none;
+        background-color: red;
+        text-align: center;
+        width: 100px; /* Fixed equal width */
+        padding: 10px; /* Adjust padding for better spacing */
+        border-radius: 5px; /* Optional rounded corners */
+        margin-right: 10px; /* Space between items */
+
+    }
+    .reg{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        margin-left: auto;
+        padding: 15px;
+        
+    }
+    .reg a{
+        color: white;
+        text-decoration: none;
+        background-color: green;
+        width: 80px;
+        padding: 10px;
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+    .reg a:hover{
+        background-color: rgb(7, 90, 7);   
+    }
+    /* General Form Styling */
+        .main {
+        max-width: 500px; /* Centering & limiting width */
+        margin: 5% auto 30px auto; /* Added 5% margin from the top */
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    /* Input Field Styling */
+    .main label {
+        font-weight: bold;
+        color: #333;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .main input, 
+    .main textarea {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .main input:focus, 
+    .main textarea:focus {
+        border-color: #ff6600;
+        outline: none;
+        box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+    }
+
+    /* Styling Form Sections */
+    .main div {
+        margin-bottom: 15px;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+        display: block;
+        width: 100%;
+        background-color: #ff6600;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+        background-color: #e65c00;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        .main {
+            width: 90%;
+        }
+    }
+</style>
+<div class="serv_nav">
+    <div class="but">
+        <a href="{% url 'home_page' %}"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
+        <a href="{% url 'aboutus' %}"><i class="fas fa-info-circle"></i>&nbsp;About Us</a>
+        <a href=" "><i class="fa-solid fa-phone"></i>&nbsp;Enquiry</a>
+        <a href="{% url 'service_view' %}"><i class="fa-solid fa-clipboard-list"></i>&nbsp;View</a>
+    </div>
+    <div class="reg">
+        <a href="{% url 'logout' %}">Logout</a>   
+    </div>
+</div>
+<div class="main">
+    <form method="post">
+        {% csrf_token %}
+        <div class="a">
+            <label for="owner_name">Owner Name: </label><br>
+            <input type="text" name="owner_name" required>
+        </div>
+        <div class="b">
+            <label for="email">Email: </label><br>
+            <input type="email" name="email" required>
+        </div>
+        <div class="c">
+            <label for="phone">Phone No.: </label><br>
+            <input type="number" name="phone" maxlength="10" required>
+        </div>
+        <div class="d">
+            <label for="vehicle_no">Vehicle No.: </label><br>
+            <input type="text" name="vehicle_no" required>
+        </div>
+        <div class="e">
+            <label for="trip">Current Trip(km): </label><br>
+            <input type="number" name="trip" required>
+        </div>
+
+        <div class="g">
+            <label for="address">Address: </label><br>
+            <textarea rows="3" placeholder="Enter full address" name="address" required></textarea>
+            
+        </div>
+        <div class="f">
+            <label for="last_service">Last Service: </label><br>
+            <input type="date" name="last_service" required>
+        </div>
+        <div class="h">
+            <label for="booking_date">Booking Date: </label><br>
+            <input type="date" name="booking_date" required>
+        </div>
+        <div class="i">
+            <label for="problems">Problems: </label><br>
+            <textarea rows="4" name="problems" placeholder="Enter your vehicle problems."></textarea>
+            
+        </div>
+        <button type="submit" class="submit-btn">Submit Booking</button>
+        
+    </form>
+
+</div>
+<!-- {% include 'footer.html' %} -->
+
+
+
+
+
+{% endblock %}
