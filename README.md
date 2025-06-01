@@ -20,7 +20,7 @@ A Django-based web application that allows users to register, book vehicle servi
 
 - 🧑‍💻 **Admin Panel**
   - View and manage all user bookings
-  - Update service status
+  - Update service status.
 
 ---
 
