@@ -36,7 +36,7 @@ A Django-based web application that allows users to register, book vehicle servi
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/yourusername/vehicle_service.git
+git clone https://github.com/Vikas8869/Vehicle-Service-Booking.git
 cd vehicle_service
 python manage.py migrate
 python manage.py runserver
