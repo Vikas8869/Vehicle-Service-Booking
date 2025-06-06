@@ -1,4 +1,4 @@
-# 🚗 Vehicle Service Web App
+# 🚗 Vehicle Service
 
 A Django-based web application that allows users to register, book vehicle services, describe vehicle issues, and reset their password via email OTP. Users can also browse service menus before booking. Admins can manage bookings and update service statuses.
 
