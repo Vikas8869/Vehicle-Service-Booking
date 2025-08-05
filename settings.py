@@ -136,3 +136,25 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'yaduvanshivikas81@gmail.com'  # Replace with your email address
 EMAIL_HOST_PASSWORD = 'jycaxarxlcnwpiaq'  # Replace with your email password
 DEFAULT_FROM_EMAIL = 'your_email@gmail.com' # Replace with your desired sender email
+
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'service/static'),  # ✅ Your custom static folder
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # ✅ Where collectstatic will store
+
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ near the top
+    # ... other middleware
+]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
