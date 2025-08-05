@@ -6,11 +6,8 @@
     body {
         margin: 0;
         padding: 0;
-        background-image: url("{% static 'Welcome1.jpg' %}"); 
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        font-family: sans-serif;
+        background: linear-gradient(135deg, #e0f7fa, #ffffff);
+        font-family: 'Segoe UI', sans-serif;
     }
 
     .navbar {
@@ -19,7 +16,7 @@
         left: 0;
         height: 60px;
         width: 100%;
-        background-color: antiquewhite;
+        background-color: #fff3e0;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -47,46 +44,39 @@
     }
 
     .but a {
-        background-color: red;
+        background-color: #00796b;
     }
 
     .but a:hover {
-        background-color: rgb(139, 2, 2);
+        background-color: #004d40;
     }
 
     .reg a {
-        background-color: green;
+        background-color: #f44336;
     }
 
     .reg a:hover {
-        background-color: rgb(7, 90, 7);
+        background-color: #b71c1c;
     }
 
-    .one {
-        position: relative;
-        height: 450px;
-        width: 600px;
-        background-color: rgba(0, 255, 255, 0.529);
-        top: 100px;
-        margin: auto;
-        border-radius: 20px;
-        animation: backgroundimg 4s infinite alternate;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    .hero {
+        margin-top: 100px;
+        text-align: center;
+        padding: 50px 20px;
+        color: #004d40;
     }
 
-    @keyframes backgroundimg {
-        0% {
-            background-image: url("{% static 'img2.avif' %}");
-        }
-        50% {
-            background-image: url("{% static 'img3.avif' %}");
-        }
-        100% {
-            background-image: url("{% static 'img4.avif' %}");
-        }
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        color: #00695c;
+    }
+
+    .hero p {
+        font-size: 20px;
+        max-width: 700px;
+        margin: 0 auto;
+        color: #333;
     }
 
     /* Responsive Design */
@@ -101,18 +91,19 @@
         .but, .reg {
             width: 100%;
             justify-content: flex-start;
-            flex-wrap: wrap;
         }
 
         .but a, .reg a {
-            width: auto;
             font-size: 13px;
             padding: 6px 10px;
         }
 
-        .one {
-            width: 90%;
-            height: 300px;
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 16px;
         }
     }
 
@@ -123,8 +114,8 @@
             margin: 5px 0;
         }
 
-        .one {
-            height: 250px;
+        .hero h1 {
+            font-size: 28px;
         }
     }
 </style>
@@ -141,8 +132,12 @@
     </div>
 </div>
 
-<div style="margin-top: 80px;"></div>
-<div class="one"></div>
+<div class="hero">
+    <h1>Welcome to Vehicle Service</h1>
+    <p>
+        Your trusted partner in ensuring your vehicle gets the best care and attention. We provide easy online booking, real-time service tracking, and reliable support. Experience the future of vehicle maintenance with us!
+    </p>
+</div>
 
 {% include 'footer.html' %}
 {% endblock %}
