@@ -3,99 +3,93 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         margin: 0;
         padding: 0;
-        background-image: url("{% static 'images/Welcome1.jpg' %}"); 
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        font-family: sans-serif;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+        min-height: 100vh;
     }
 
     .navbar {
         position: fixed;
         top: 0;
         left: 0;
-        height: 60px;
         width: 100%;
         background-color: antiquewhite;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 20px;
-        z-index: 10;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .but, .reg {
         display: flex;
-        align-items: center;
         flex-wrap: wrap;
+        align-items: center;
     }
 
     .but a, .reg a {
+        display: flex;
+        align-items: center;
+        gap: 6px;
         color: white;
         text-decoration: none;
-        padding: 8px 12px;
+        padding: 8px 14px;
         margin: 5px;
-        border-radius: 5px;
-        font-size: 14px;
-        transition: 0.3s;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: background-color 0.3s ease;
         white-space: nowrap;
     }
 
     .but a {
-        background-color: red;
+        background-color: #e74c3c;
     }
 
     .but a:hover {
-        background-color: rgb(139, 2, 2);
+        background-color: #c0392b;
     }
 
     .reg a {
-        background-color: green;
+        background-color: #27ae60;
     }
 
     .reg a:hover {
-        background-color: rgb(7, 90, 7);
+        background-color: #1e8449;
     }
 
-    .one {
-        position: relative;
-        height: 450px;
-        width: 600px;
-        background-color: rgba(0, 255, 255, 0.529);
-        top: 100px;
-        margin: auto;
-        border-radius: 20px;
-        animation: backgroundimg 4s infinite alternate;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    .welcome-container {
+        margin-top: 120px;
+        padding: 60px 30px;
+        text-align: center;
     }
 
-    @keyframes backgroundimg {
-        0% {
-            background-image: url("{% static 'images/img2.avif' %}");
-        }
-        50% {
-            background-image: url("{% static 'images/img3.avif' %}");
-        }
-        100% {
-            background-image: url("{% static 'images//img4.avif' %}");
-        }
+    .welcome-container h1 {
+        font-size: 48px;
+        color: #2c3e50;
+        margin-bottom: 20px;
+    }
+
+    .welcome-container p {
+        font-size: 20px;
+        color: #34495e;
+        max-width: 700px;
+        margin: 0 auto;
     }
 
     /* Responsive Design */
-    @media screen and (max-width: 768px) {
+    @media (max-width: 768px) {
         .navbar {
             flex-direction: column;
             align-items: flex-start;
-            height: auto;
-            padding: 10px;
         }
 
         .but, .reg {
@@ -105,44 +99,43 @@
         }
 
         .but a, .reg a {
-            width: auto;
-            font-size: 13px;
-            padding: 6px 10px;
+            font-size: 14px;
+            padding: 6px 12px;
         }
 
-        .one {
-            width: 90%;
-            height: 300px;
+        .welcome-container h1 {
+            font-size: 32px;
+        }
+
+        .welcome-container p {
+            font-size: 16px;
         }
     }
 
-    @media screen and (max-width: 480px) {
+    @media (max-width: 480px) {
         .but a, .reg a {
             width: 100%;
-            text-align: center;
-            margin: 5px 0;
-        }
-
-        .one {
-            height: 250px;
+            justify-content: center;
         }
     }
 </style>
 
 <div class="navbar">
     <div class="but">
-        <a href="{% url 'home_page' %}"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
-        <a href="{% url 'aboutus' %}"><i class="fas fa-info-circle"></i>&nbsp;About Us</a>
-        <a href="{% url 'contact_page' %}"><i class="fa-solid fa-phone"></i>&nbsp;Enquiry</a>
-        <a href="{% url 'charges' %}"><i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;Charges</a>
+        <a href="{% url 'home_page' %}"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="{% url 'aboutus' %}"><i class="fas fa-info-circle"></i>About Us</a>
+        <a href="{% url 'contact_page' %}"><i class="fa-solid fa-phone"></i>Enquiry</a>
+        <a href="{% url 'charges' %}"><i class="fa-solid fa-indian-rupee-sign"></i>Charges</a>
     </div>
     <div class="reg">
-        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login</a>
     </div>
 </div>
 
-<div style="margin-top: 80px;"></div>
-<div class="one"></div>
+<div class="welcome-container">
+    <h1>Welcome to Vehicle Service Portal</h1>
+    <p>Your one-stop solution for all vehicle servicing needs — easy booking, affordable rates, expert mechanics, and prompt support. Experience hassle-free vehicle care like never before.</p>
+</div>
 
 {% include 'footer.html' %}
 {% endblock %}
