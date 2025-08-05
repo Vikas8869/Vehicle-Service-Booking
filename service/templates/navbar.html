@@ -1,89 +1,78 @@
+
+
 {% block start %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 <style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
     .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: antiquewhite;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        z-index: 1000;
-    }
-
-    .but, .reg {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-    }
-
-    .but a, .reg a {
-        color: white;
-        text-decoration: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        display: inline-block;
-        text-align: center;
-        white-space: nowrap;
-    }
-
-    .but a {
-        background-color: red;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 7%;
+    width: 100%;
+    
+    background-color: #80808057;
+    
+    display: flex;
+    background-color: antiquewhite;
+    
+     /* Keeps items from touching the edges */
+}
 
     .but a:hover {
-        background-color: rgb(139, 2, 2);
+        background-color:  rgb(139, 2, 2);
     }
+    .but{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+        
+    }
+    .but a{
+        color: white;
+        text-decoration: none;
+        background-color: red;
+        text-align: center;
+        width: 100px; /* Fixed equal width */
+        padding: 10px; /* Adjust padding for better spacing */
+        border-radius: 5px; /* Optional rounded corners */
+        margin-right: 10px; /* Space between items */
 
-    .reg a {
+    }
+    .reg{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        margin-left: auto;
+        padding: 15px;
+        
+    }
+    .reg a{
+        color: white;
+        text-decoration: none;
         background-color: green;
+        width: 80px;
+        padding: 10px;
+        border-radius: 5px;
+        margin-left: 10px;
     }
-
-    .reg a:hover {
+    .reg a:hover{
         background-color: rgb(7, 90, 7);
-    }
-
-    /* Responsive Styling */
-    @media (max-width: 768px) {
-        .navbar {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .but, .reg {
-            flex-direction: column;
-            width: 100%;
-            padding: 10px 0;
-        }
-
-        .but a, .reg a {
-            width: 100%;
-            text-align: left;
-        }
+        
     }
 </style>
-
 <div class="navbar">
     <div class="but">
         <a href="{% url 'home_page' %}"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
         <a href="{% url 'aboutus' %}"><i class="fas fa-info-circle"></i>&nbsp;About Us</a>
         <a href="{% url 'contact_page' %}"><i class="fa-solid fa-phone"></i>&nbsp;Enquiry</a>
         <a href="{% url 'charges' %}"><i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;Charges</a>
+        <!-- <a href="{% url 'service_page' %}"><i class="fa-solid fa-wrench"></i>&nbsp;Service</a> -->
     </div>
+
     <div class="reg">
         <a href="{% url 'login' %}">Login</a>
+        <!-- <a href="">Signup</a> -->
     </div>
 </div>
 {% endblock %}

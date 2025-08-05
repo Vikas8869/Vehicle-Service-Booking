@@ -1,23 +1,29 @@
 {% block start %}
 {% include 'navbar.html' %}
-
 <style>
     body {
         background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
     }
 
     .con {
         width: 80%;
-        max-width: 700px;
-        margin: 4rem auto 2rem auto;
+        margin: 4rem auto 2rem auto; /* Increased top margin from 2% to 4rem for spacing below navbar */
         padding: 2rem;
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border: 1px solid #ddd;
+    }
+
+    .con p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .con p b {
+        color: #2c3e50;
+        font-weight: 600;
     }
 
     .con h2 {
@@ -27,59 +33,38 @@
         color: #34495e;
     }
 
-    .con p {
-        font-size: 18px;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-        color: #333;
+    .con ul {
+        list-style-type: none;
+        padding: 0;
     }
 
-    .con p b {
-        color: #2c3e50;
+    .con ul li {
+        margin-bottom: 1rem;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .con ul li b {
         font-weight: 600;
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .con {
-            width: 90%;
-            padding: 1.5rem;
-        }
-
-        .con h2 {
-            font-size: 20px;
-        }
-
-        .con p {
-            font-size: 16px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .con {
-            padding: 1rem;
-        }
-
-        .con h2 {
-            font-size: 18px;
-        }
-
-        .con p {
-            font-size: 15px;
-        }
+    .con p:last-child {
+        font-size: 20px;
+        font-weight: 600;
+        color: #e74c3c;
     }
 </style>
 
 <div class="con">
     <h2>Service Charges Breakdown</h2>
-    <p><b>Labour Charge:</b> Rs.1050</p>
-    <p><b>Mobil Oil Charges:</b> Rs.399</p>
-    <p><b>Air Filter Charges:</b> Rs.425</p>
-    <p><b>Break Shoe Charges:</b> Rs.811</p>
-    <p><b>Clutch & Break Wire Charges:</b> Rs.220</p>
+    <p><b>Labour Charge: </b>Rs.1050</p>
+    <p><b>Mobil Oil Charges: </b>Rs.399</p>
+    <p><b>Air Filter Charges:</b>Rs.425</p>
+    <p><b>Break Shoe Charges:</b>Rs.811</p>
+    <p><b>Clutch & Break Wire Charges:</b>Rs.220</p>
     <p><b>Taxes:</b> Applicable taxes will be added at checkout (approximately 5% - 10%)</p>
     <p><b>Special Discount:</b> 10% off on your first service</p>
 </div>
-
 {% include 'footer.html' %}
+
 {% endblock %}

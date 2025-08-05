@@ -1,85 +1,53 @@
 {% block start %}
 <style>
-    .footer {
+        .footer {
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        background: linear-gradient(135deg, #1a1a2e, #16213e);
-        color: white;
-        text-align: center;
-        padding: 15px 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-    }
-
-    .footer .social-links {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .footer .social-links a {
-        color: white;
-        font-size: 24px;
-        margin: 0 12px;
-        transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .footer .social-links a:hover {
-        color: #00a8ff;
-        transform: scale(1.2);
-    }
-
-    .footer p {
-        font-size: 14px;
-        margin: 0;
-        opacity: 0.8;
-    }
-
-    /* Responsive adjustments */
-    @media screen and (max-width: 768px) {
-        .footer {
-            padding: 12px 10px;
-            gap: 10px;
-        }
-
-        .footer .social-links a {
-            font-size: 20px;
-            margin: 0 8px;
-        }
-
-        .footer p {
-            font-size: 13px;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .footer {
+        height: 15%;
+        background-color:  rgba(0, 0, 0, 0.844);
+            background: linear-gradient(135deg, #1a1a2e, #16213e); /* Gradient background */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            display: flex;
             flex-direction: column;
-            padding: 10px 5px;
+            align-items: center;
+            gap: 15px; /* Equal vertical spacing */
+            box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
         }
 
-        .footer .social-links a {
-            font-size: 18px;
-            margin: 0 6px;
+        /* Social Media Links */
+        .footer a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
+        /* Hover Effect */
+        .footer a:hover {
+            color: #00a8ff; /* Change color on hover */
+            transform: scale(1.2); /* Slight pop effect */
+        }
+
+        /* Footer Text */
         .footer p {
-            font-size: 12px;
+            font-size: 14px;
+            margin: 0;
+            opacity: 0.8;
         }
-    }
-</style>
 
+
+</style>
 <div class="footer">
     <div class="social-links">
-        <a href="https://www.linkedin.com/in/vikasyadav-31v/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/Vikas8869" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/vikasyadav-31v/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/Vikas8869"><i class="fa-brands fa-github"></i></a>
     </div>
     <p>© 2025 Service World Ltd. All Rights Reserved.</p>
 </div>
+
+
 {% endblock %}

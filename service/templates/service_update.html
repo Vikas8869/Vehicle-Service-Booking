@@ -3,77 +3,75 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
-    body {
+    body{
         background-color: rgb(210, 190, 190);
-        margin: 0;
-        padding: 0;
-        font-family: 'Segoe UI', sans-serif;
     }
-
     .serv_nav {
         position: fixed;
         top: 0;
         left: 0;
+        height: 7%;
         width: 100%;
+        background-color: #80808057;
+        display: flex;
         background-color: antiquewhite;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 15px;
-        z-index: 999;
-        flex-wrap: wrap;
-    }
-
-    .but {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .but a,
-    .reg a {
-        color: white;
-        text-decoration: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        font-size: 14px;
-        white-space: nowrap;
-        transition: background-color 0.3s ease;
-    }
-
-    .but a {
-        background-color: red;
+    
+     /* Keeps items from touching the edges */
     }
 
     .but a:hover {
-        background-color: rgb(139, 2, 2);
+        background-color:  rgb(139, 2, 2);
     }
-
-    .reg {
+    .but{
         display: flex;
-        gap: 10px;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+        
+    }
+    .but a{
+        color: white;
+        text-decoration: none;
+        background-color: red;
+        text-align: center;
+        width: 100px; /* Fixed equal width */
+        padding: 10px; /* Adjust padding for better spacing */
+        border-radius: 5px; /* Optional rounded corners */
+        margin-right: 10px; /* Space between items */
+
+    }
+    .reg{
+        display: flex;
+        text-align: center;
+        align-items: center;
         margin-left: auto;
-        padding: 10px 0;
+        padding: 15px;
+        
     }
-
-    .reg a {
+    .reg a{
+        color: white;
+        text-decoration: none;
         background-color: green;
+        width: 80px;
+        padding: 10px;
+        border-radius: 5px;
+        margin-left: 10px;
     }
-
-    .reg a:hover {
-        background-color: rgb(7, 90, 7);
+    .reg a:hover{
+        background-color: rgb(7, 90, 7);   
     }
-
-    .main {
-        max-width: 600px;
-        margin: 100px auto 30px auto;
+    /* General Form Styling */
+        .main {
+        max-width: 500px; /* Centering & limiting width */
+        margin: 5% auto 30px auto; /* Added 5% margin from the top */
         padding: 20px;
         background: #fff;
         border-radius: 10px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        box-sizing: border-box;
     }
 
+
+    /* Input Field Styling */
     .main label {
         font-weight: bold;
         color: #333;
@@ -81,7 +79,7 @@
         margin-bottom: 5px;
     }
 
-    .main input,
+    .main input, 
     .main textarea {
         width: 100%;
         padding: 10px;
@@ -89,20 +87,21 @@
         border-radius: 5px;
         font-size: 16px;
         transition: 0.3s ease-in-out;
-        box-sizing: border-box;
     }
 
-    .main input:focus,
+    .main input:focus, 
     .main textarea:focus {
         border-color: #ff6600;
         outline: none;
         box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
     }
 
+    /* Styling Form Sections */
     .main div {
         margin-bottom: 15px;
     }
 
+    /* Submit Button */
     .submit-btn {
         display: block;
         width: 100%;
@@ -121,104 +120,76 @@
         background-color: #e65c00;
     }
 
-    /* Responsive design */
-    @media (max-width: 768px) {
-        .serv_nav {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .but,
-        .reg {
-            width: 100%;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 5px 0;
-        }
-
-        .but a,
-        .reg a {
-            width: auto;
-            font-size: 13px;
-        }
-
+    /* Responsive Design */
+    @media (max-width: 600px) {
         .main {
             width: 90%;
-            margin-top: 140px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .but a,
-        .reg a {
-            padding: 8px 10px;
-            font-size: 12px;
-        }
-
-        .main {
-            padding: 15px;
-        }
-
-        .submit-btn {
-            font-size: 16px;
-            padding: 10px;
         }
     }
 </style>
-
 <div class="serv_nav">
     <div class="but">
         <a href="{% url 'home_page' %}"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
         <a href="{% url 'aboutus' %}"><i class="fas fa-info-circle"></i>&nbsp;About Us</a>
-        <a href="#"><i class="fa-solid fa-phone"></i>&nbsp;Contact</a>
-        <a href="#"><i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;Charges</a>
+        <a href=" "><i class="fa-solid fa-phone"></i>&nbsp;Contact</a>
+        <a href=" "><i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;Charges</a>
         <a href="{% url 'service_view' %}"><i class="fa-solid fa-clipboard-list"></i>&nbsp;View</a>
     </div>
     <div class="reg">
-        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'logout' %}">Logout</a>   
     </div>
 </div>
-
 <div class="main">
     <form method="post">
         {% csrf_token %}
-        <div>
-            <label for="owner_name">Owner Name:</label>
+        <div class="a">
+            <label for="owner_name">Owner Name: </label><br>
             <input type="text" name="owner_name" required value="{{data.owner_name}}">
         </div>
-        <div>
-            <label for="email">Email:</label>
+        <div class="b">
+            <label for="email">Email: </label><br>
             <input type="email" name="email" required value="{{data.email}}">
         </div>
-        <div>
-            <label for="phone">Phone No.:</label>
+        <div class="c">
+            <label for="phone">Phone No.: </label><br>
             <input type="number" name="phone" maxlength="10" required value="{{data.phone}}">
         </div>
-        <div>
-            <label for="vehicle_no">Vehicle No.:</label>
+        <div class="d">
+            <label for="vehicle_no">Vehicle No.: </label><br>
             <input type="text" name="vehicle_no" required value="{{data.vehicle_no}}">
         </div>
-        <div>
-            <label for="trip">Current Trip (km):</label>
+        <div class="e">
+            <label for="trip">Current Trip(km): </label><br>
             <input type="number" name="trip" required value="{{data.trip}}">
         </div>
-        <div>
-            <label for="address">Address:</label>
-            <textarea rows="3" name="address" placeholder="Enter full address" required>{{data.address}}</textarea>
+
+        <div class="g">
+            <label for="address">Address: </label><br>
+            <textarea rows="3" placeholder="Enter full address" name="address" required>{{data.address}}</textarea>
+            
         </div>
-        <div>
-            <label for="last_service">Last Service:</label>
+        <div class="f">
+            <label for="last_service">Last Service: </label><br>
             <input type="date" name="last_service" required value="{{data.last_service}}">
         </div>
-        <div>
-            <label for="booking_date">Booking Date:</label>
+        <div class="h">
+            <label for="booking_date">Booking Date: </label><br>
             <input type="date" name="booking_date" required value="{{data.booking_date}}">
         </div>
-        <div>
-            <label for="problems">Problems:</label>
+        <div class="i">
+            <label for="problems">Problems: </label><br>
             <textarea rows="4" name="problems" placeholder="Enter your vehicle problems.">{{data.problems}}</textarea>
+            
         </div>
         <button type="submit" class="submit-btn">Submit Booking</button>
+        
     </form>
+
 </div>
+<!-- {% include 'footer.html' %} -->
+
+
+
+
+
 {% endblock %}

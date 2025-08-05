@@ -1,79 +1,77 @@
 {% load static %}
 {% block start %}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
+    body{
         background-color: rgb(210, 190, 190);
-        margin: 0;
-        padding-top: 60px; /* To ensure navbar doesn't overlap */
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
-    /* ---------------- Navbar ---------------- */
     .serv_nav {
         position: fixed;
         top: 0;
         left: 0;
+        height: 7%;
         width: 100%;
+        background-color: #80808057;
+        display: flex;
         background-color: antiquewhite;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        z-index: 1000;
-    }
-
-    .but, .reg {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .but a, .reg a {
-        color: white;
-        text-decoration: none;
-        background-color: red;
-        padding: 10px 15px;
-        border-radius: 5px;
-        font-size: 14px;
-        text-align: center;
-        white-space: nowrap;
-    }
-
-    .reg a {
-        background-color: green;
+    
+     /* Keeps items from touching the edges */
     }
 
     .but a:hover {
-        background-color: rgb(139, 2, 2);
+        background-color:  rgb(139, 2, 2);
     }
-
-    .reg a:hover {
-        background-color: rgb(7, 90, 7);
+    .but{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+        
     }
+    .but a{
+        color: white;
+        text-decoration: none;
+        background-color: red;
+        text-align: center;
+        width: 100px; /* Fixed equal width */
+        padding: 10px; /* Adjust padding for better spacing */
+        border-radius: 5px; /* Optional rounded corners */
+        margin-right: 10px; /* Space between items */
 
-    /* ---------------- Form Styling ---------------- */
-    .main {
-        max-width: 500px;
-        margin: auto;
+    }
+    .reg{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        margin-left: auto;
+        padding: 15px;
+        
+    }
+    .reg a{
+        color: white;
+        text-decoration: none;
+        background-color: green;
+        width: 80px;
+        padding: 10px;
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+    .reg a:hover{
+        background-color: rgb(7, 90, 7);   
+    }
+    /* General Form Styling */
+        .main {
+        max-width: 500px; /* Centering & limiting width */
+        margin: 5% auto 30px auto; /* Added 5% margin from the top */
         padding: 20px;
         background: #fff;
         border-radius: 10px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .main div {
-        margin-bottom: 15px;
-    }
 
+    /* Input Field Styling */
     .main label {
         font-weight: bold;
         color: #333;
@@ -98,6 +96,12 @@
         box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
     }
 
+    /* Styling Form Sections */
+    .main div {
+        margin-bottom: 15px;
+    }
+
+    /* Submit Button */
     .submit-btn {
         display: block;
         width: 100%;
@@ -116,87 +120,75 @@
         background-color: #e65c00;
     }
 
-    /* ---------------- Responsive ---------------- */
-    @media (max-width: 768px) {
-        .serv_nav {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .but, .reg {
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-        }
-
-        .but a, .reg a {
-            width: 100%;
-            text-align: left;
-        }
-
+    /* Responsive Design */
+    @media (max-width: 600px) {
         .main {
             width: 90%;
-            padding: 20px;
-        }
-
-        .submit-btn {
-            font-size: 16px;
         }
     }
 </style>
-
 <div class="serv_nav">
     <div class="but">
         <a href="{% url 'home_page' %}"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
         <a href="{% url 'aboutus' %}"><i class="fas fa-info-circle"></i>&nbsp;About Us</a>
-        <a href="#"><i class="fa-solid fa-phone"></i>&nbsp;Enquiry</a>
+        <a href=" "><i class="fa-solid fa-phone"></i>&nbsp;Enquiry</a>
         <a href="{% url 'service_view' %}"><i class="fa-solid fa-clipboard-list"></i>&nbsp;View</a>
     </div>
     <div class="reg">
-        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'logout' %}">Logout</a>   
     </div>
 </div>
-
 <div class="main">
     <form method="post">
         {% csrf_token %}
         <div class="a">
-            <label for="owner_name">Owner Name: </label>
+            <label for="owner_name">Owner Name: </label><br>
             <input type="text" name="owner_name" required>
         </div>
         <div class="b">
-            <label for="email">Email: </label>
+            <label for="email">Email: </label><br>
             <input type="email" name="email" required>
         </div>
         <div class="c">
-            <label for="phone">Phone No.: </label>
+            <label for="phone">Phone No.: </label><br>
             <input type="number" name="phone" maxlength="10" required>
         </div>
         <div class="d">
-            <label for="vehicle_no">Vehicle No.: </label>
+            <label for="vehicle_no">Vehicle No.: </label><br>
             <input type="text" name="vehicle_no" required>
         </div>
         <div class="e">
-            <label for="trip">Current Trip (km): </label>
+            <label for="trip">Current Trip(km): </label><br>
             <input type="number" name="trip" required>
         </div>
+
         <div class="g">
-            <label for="address">Address: </label>
+            <label for="address">Address: </label><br>
             <textarea rows="3" placeholder="Enter full address" name="address" required></textarea>
+            
         </div>
         <div class="f">
-            <label for="last_service">Last Service: </label>
+            <label for="last_service">Last Service: </label><br>
             <input type="date" name="last_service" required>
         </div>
         <div class="h">
-            <label for="booking_date">Booking Date: </label>
+            <label for="booking_date">Booking Date: </label><br>
             <input type="date" name="booking_date" required>
         </div>
         <div class="i">
-            <label for="problems">Problems: </label>
+            <label for="problems">Problems: </label><br>
             <textarea rows="4" name="problems" placeholder="Enter your vehicle problems."></textarea>
+            
         </div>
         <button type="submit" class="submit-btn">Submit Booking</button>
+        
     </form>
+
 </div>
+<!-- {% include 'footer.html' %} -->
+
+
+
+
+
 {% endblock %}

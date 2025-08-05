@@ -1,104 +1,41 @@
 {% extends 'index.html' %}
 {% block start %}
 <style>
-    body {
+    body{
         background-color: bisque;
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
+        
     }
-
-    .about {
-        margin: 4% auto;
-        padding: 2rem;
+    .about{
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: 8.5%;   
+        margin-top: 4%;
+        margin-bottom: 4%;
+        height: 510px;
         width: 80%;
         background-color: rgb(203, 190, 212);
-        border-radius: 8px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .about h2 {
-        text-align: center;
-        margin-bottom: 1.5rem;
-        font-size: 28px;
-        color: #2c3e50;
-        text-decoration: underline;
-    }
-
-    .about p {
-        font-weight: bold;
-        margin-top: 1rem;
-        font-size: 18px;
-        color: #1a1a1a;
-    }
-
-    .about li {
-        font-size: 16px;
-        line-height: 1.6;
-        margin-left: 1rem;
-        color: #333;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .about {
-            width: 90%;
-            padding: 1.5rem;
-        }
-
-        .about h2 {
-            font-size: 24px;
-        }
-
-        .about p {
-            font-size: 16px;
-        }
-
-        .about li {
-            font-size: 15px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .about {
-            width: 95%;
-            padding: 1rem;
-        }
-
-        .about h2 {
-            font-size: 22px;
-        }
-
-        .about p {
-            font-size: 15px;
-        }
-
-        .about li {
-            font-size: 14px;
-        }
-    }
+        border-radius: 4px;
+}
 </style>
-
 {% include 'navbar.html' %}
 
+
 <div class="about">
-    <h2>About Me</h2>
-
-    <p>Who We Are</p>
-    <li>At Service World, we are dedicated to providing top-quality vehicle service and maintenance with reliability, expertise, and customer satisfaction at the heart of everything we do.</li>
-
-    <p>Our Mission</p>
+    <h2 style="padding-left: 45%;"><u>About Me</u></h2>
+    <p><b>Who We Are</b></p>
+    <li>At Service World, we are dedicated to providing top-quality vehicle service and maintenance with reliability, expertise, and customer satisfaction at the heart of everything we do. Whether you need routine maintenance or complex repairs, our skilled team ensures your vehicle is in top condition.</li>
+    <p><b>Our Mission</b></p>
     <li>Our mission is to deliver exceptional auto care with transparency, efficiency, and affordability. We strive to keep you safe on the road by offering high-quality vehicle servicing that meets the highest industry standards.</li>
-
-    <p>Our Story</p>
-    <li>Founded in 2024, Service World Ltd. started with a vision to create a trusted and customer-friendly vehicle service center. Over the years, we have grown into a reputable service provider known for excellence, reliability, and innovation in automotive care.</li>
-
-    <p>What We Offer</p>
+    <P><b>Our Story</b></P>
+    <li>Founded in 2024,[Service World Ltd. started with a vision to create a trusted and customer-friendly vehicle service center. Over the years, we have grown into a reputable service provider known for excellence, reliability, and innovation in automotive care.</li>
+    <p><b>What We Offer</b></p>
     <li>Routine maintenance (oil changes, fluid checks, tire rotations)</li>
     <li>Engine diagnostics and repair</li>
     <li>Brake and suspension services</li>
     <li>Battery replacement and electrical system services etc.</li>
 </div>
+
+
 
 {% include 'footer.html' %}
 {% endblock %}

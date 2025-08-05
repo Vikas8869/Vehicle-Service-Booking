@@ -9,66 +9,30 @@
         height: 100vh;
         display: flex;
         justify-content: center;
-    }
-
-    .container {
-        width: 100%;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
+        /* align-items: center; */
     }
 
     .con {
-        width: 90%;
-        max-width: 600px;
-        border-radius: 8px;
+        margin-top: 20%;
+        height: 18rem;
+        width: 35rem;
+        /* border: 2px solid black; */
+        border-radius: 4px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
-        padding: 25px;
+        padding: 2%;
         background-color: #fff9c4;
-        margin-top: 100px;
     }
 
     h2 {
         text-align: center;
-        font-size: 28px;
+        font-size: 24px;
         margin-bottom: 20px;
-        color: #333;
     }
 
     p {
-        font-size: 18px;
-        margin: 12px 0;
-        color: #333;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .con {
-            padding: 20px;
-            margin-top: 80px;
-        }
-
-        h2 {
-            font-size: 24px;
-        }
-
-        p {
-            font-size: 16px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .con {
-            margin-top: 60px;
-        }
-
-        h2 {
-            font-size: 22px;
-        }
-
-        p {
-            font-size: 15px;
-        }
+        font-size: 20px;
+        margin: 15px 10px;
+        text-align: left; /* Explicitly left-align the text */
     }
 </style>
 
@@ -79,8 +43,12 @@
         <p><b>Email:</b> yaduvanshivikas81@gmail.com</p>
         <p><b>Address:</b> 1234 Main Street, Indira Nagar, Lucknow, UP</p>
         <p><b>Working Hours:</b> Mon - Fri, 9 AM - 6 PM</p>
+        <!-- <iframe src="https://www.google.com/maps/place/BBD+Green+City,+Semra,+Uttar+Pradesh+226010,+India/@26.8873305,81.0530964,16z/data=!3m1!4b1!4m6!3m5!1s0x399be20ae349e443:0x3e28d5a0989b182c!8m2!3d26.8873305!4d81.0556713!16s%2Fg%2F1hjh99bbs?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D" width="100%" height="100" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+
+
+
     </div>
 </div>
-
 {% include 'footer.html' %}
+
 {% endblock %}
