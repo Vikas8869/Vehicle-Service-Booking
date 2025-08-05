@@ -1,6 +1,0 @@
-google-generativeai
-gunicorn
-whitenoise
-
-pymupdf
-django
