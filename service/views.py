@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import *
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -15,7 +17,7 @@ def contact_page(request):
 def charges(request):
     return render(request,"charges.html")
 
-
+@login_required(login_url='login')
 def service_page(request):
     if request.method=="POST":
         data=request.POST
@@ -42,11 +44,13 @@ def service_page(request):
         )
         return redirect('/service_page/')
     return render(request,"service_page.html")
+@login_required(login_url='login')
 def service_view(request):
     queryset=Service.objects.all()
     context={'data':queryset}
     return render(request,"service_view.html",context)
 
+@login_required(login_url='login')
 def service_update(request, id):
     queryset = Service.objects.get(id=id)
     
@@ -68,6 +72,7 @@ def service_update(request, id):
 
     context = {'data': queryset}
     return render(request, "service_update.html", context)
+
 
 def cancel_service(request,id):
     queryset=Service.objects.get(id=id)
