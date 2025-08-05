@@ -136,3 +136,8 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'yaduvanshivikas81@gmail.com'  # Replace with your email address
 EMAIL_HOST_PASSWORD = 'jycaxarxlcnwpiaq'  # Replace with your email password
 DEFAULT_FROM_EMAIL = 'your_email@gmail.com' # Replace with your desired sender email
+
+import os
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

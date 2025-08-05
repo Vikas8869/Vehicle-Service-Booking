@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: sans-serif;
             background-color: #f4f4f4;
@@ -13,7 +19,6 @@
             min-height: 100vh;
             margin: 0;
             padding: 20px;
-            box-sizing: border-box;
         }
 
         h1 {
@@ -53,11 +58,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
-            box-sizing: border-box;
-        }
-
-        form p {
-            margin-bottom: 15px;
         }
 
         label {
@@ -69,25 +69,25 @@
 
         input[type="text"],
         input[type="password"] {
-            width: calc(100% - 12px);
+            width: 100%;
             padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            box-sizing: border-box;
             font-size: 16px;
         }
 
         button[type="submit"] {
             background-color: #007bff;
             color: white;
-            padding: 12px 20px;
+            padding: 12px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
             width: 100%;
-            display: block;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         button[type="submit"]:hover {
@@ -95,7 +95,7 @@
         }
 
         p {
-            margin-top: 20px;
+            margin-top: 15px;
             color: #777;
             text-align: center;
         }
@@ -108,11 +108,28 @@
         p a:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 500px) {
+            form {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            input,
+            button {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
     {% include 'navbar.html' %}
+
     <h1>Login</h1>
+
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -120,13 +137,18 @@
             {% endfor %}
         </ul>
     {% endif %}
+
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
-        <input type="text" name="username" placeholder="Username" required><br><br>
-        <input type="password" name="password" placeholder="Password" required><br><br>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Enter your username" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter your password" required>
+
         <button type="submit">Login</button>
-        
     </form>
+
     <p><a href="{% url 'signup' %}">Don't have an account? Sign up</a></p>
     <p><a href="{% url 'forgot_password' %}">Forgot your password?</a></p>
 </body>

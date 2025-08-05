@@ -1,179 +1,209 @@
+{% load static %}
 {% block start %}
-<style>
-    body {
-        background-color: rgb(210, 190, 190);
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Service Booking Records</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: rgb(210, 190, 190);
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    .serv_nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 7%;
-        width: 100%;
-        background-color: #80808057;
-        display: flex;
-        background-color: antiquewhite;
-    }
+        .serv_nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: antiquewhite;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            z-index: 1000;
+        }
 
-    .but a:hover {
-        background-color: rgb(139, 2, 2);
-    }
+        .but {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-    .but {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px;
-    }
+        .but a,
+        .reg a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: background-color 0.3s ease;
+        }
 
-    .but a {
-        color: white;
-        text-decoration: none;
-        background-color: red;
-        text-align: center;
-        width: 100px;
-        padding: 10px;
-        border-radius: 5px;
-        margin-right: 10px;
-    }
+        .but a {
+            background-color: red;
+        }
 
-    .reg {
-        display: flex;
-        text-align: center;
-        align-items: center;
-        margin-left: auto;
-        padding: 15px;
-    }
+        .but a:hover {
+            background-color: rgb(139, 2, 2);
+        }
 
-    .reg a {
-        color: white;
-        text-decoration: none;
-        background-color: green;
-        width: 80px;
-        padding: 10px;
-        border-radius: 5px;
-        margin-left: 10px;
-    }
+        .reg {
+            display: flex;
+            gap: 10px;
+            margin-left: auto;
+        }
 
-    .reg a:hover {
-        background-color: rgb(7, 90, 7);
-    }
+        .reg a {
+            background-color: green;
+        }
 
-    /* --- Enhanced container and table section --- */
+        .reg a:hover {
+            background-color: rgb(7, 90, 7);
+        }
 
-    .container {
-        padding: 100px 30px 30px;
-        display: flex;
-        justify-content: center;
-    }
-
-    table {
-        width: 100%;
-        max-width: 1100px;
-        border-collapse: collapse;
-        background-color: #fff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        border-radius: 12px;
-        overflow: hidden;
-        font-size: 16px;
-    }
-
-    th, td {
-        padding: 15px 20px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-    }
-
-    th {
-        background-color: #3498db;
-        color: white;
-        font-weight: bold;
-    }
-
-    tr:hover {
-        background-color: #f2f2f2;
-    }
-
-    td a {
-        color: white;
-        text-decoration: none;
-        padding: 8px 14px;
-        border-radius: 6px;
-        font-size: 14px;
-        margin: 0 5px;
-        display: inline-block;
-    }
-
-    td a:first-child {
-        background-color: #2980b9;
-    }
-
-    td a:last-child {
-        background-color: #c0392b;
-    }
-
-    td a:first-child:hover {
-        background-color: #1f618d;
-    }
-
-    td a:last-child:hover {
-        background-color: #a93226;
-    }
-
-    @media (max-width: 768px) {
         .container {
-            padding: 100px 10px;
+            padding: 100px 20px 30px;
+            display: flex;
+            justify-content: center;
         }
 
         table {
-            font-size: 14px;
+            width: 100%;
+            max-width: 1100px;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 16px;
         }
 
         th, td {
-            padding: 10px;
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
         }
 
         td a {
-            padding: 6px 10px;
-            font-size: 13px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin: 0 5px;
+            display: inline-block;
         }
-    }
-</style>
 
-<div class="serv_nav">
-    <div class="but">
-        <a href="{% url 'home_page' %}"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
-        <a href="{% url 'aboutus' %}"><i class="fas fa-info-circle"></i>&nbsp;About Us</a>
-        <a href=" "><i class="fa-solid fa-phone"></i>&nbsp;Contact</a>
-        <a href=" "><i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;Charges</a>
-        <a href="{% url 'service_view' %}"><i class="fa-solid fa-clipboard-list"></i>&nbsp;View</a>
-    </div>
-    <div class="reg">
-        <a href="{% url 'logout' %}">Logout</a>
-    </div>
-</div>
+        td a:first-child {
+            background-color: #2980b9;
+        }
 
-<div class="container">
-    <table>
-        <tr>
-            <th>No.</th>
-            <th>Owner Name</th>
-            <th>Vehicle Number</th>
-            <th>Booking Date</th>
-            <th>Action</th>
-        </tr>
-        {% for view in data %}
-        <tr>
-            <td>{{ forloop.counter }}</td>
-            <td>{{ view.owner_name }}</td>
-            <td>{{ view.vehicle_no }}</td>
-            <td>{{ view.booking_date }}</td>
-            <td>
-                <a href="/service_update/{{ view.id }}/">Edit</a>
-                <a href="/cancel_service/{{ view.id }}">Cancel</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
+        td a:last-child {
+            background-color: #c0392b;
+        }
+
+        td a:first-child:hover {
+            background-color: #1f618d;
+        }
+
+        td a:last-child:hover {
+            background-color: #a93226;
+        }
+
+        @media (max-width: 768px) {
+            .serv_nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .but,
+            .reg {
+                width: 100%;
+                justify-content: center;
+                margin: 5px 0;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            td a {
+                padding: 6px 10px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            td a {
+                display: block;
+                margin: 5px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="serv_nav">
+        <div class="but">
+            <a href="{% url 'home_page' %}"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
+            <a href="{% url 'aboutus' %}"><i class="fas fa-info-circle"></i>&nbsp;About Us</a>
+            <a href="{% url 'contact' %}"><i class="fa-solid fa-phone"></i>&nbsp;Contact</a>
+            <a href="{% url 'charges' %}"><i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;Charges</a>
+            <a href="{% url 'service_view' %}"><i class="fa-solid fa-clipboard-list"></i>&nbsp;View</a>
+        </div>
+        <div class="reg">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+
+    <h2 style="text-align:center; margin-top: 80px;">Service Booking Records</h2>
+    <div class="container">
+        <table>
+            <tr>
+                <th>No.</th>
+                <th>Owner Name</th>
+                <th>Vehicle Number</th>
+                <th>Booking Date</th>
+                <th>Action</th>
+            </tr>
+            {% if data %}
+                {% for view in data %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ view.owner_name }}</td>
+                    <td>{{ view.vehicle_no }}</td>
+                    <td>{{ view.booking_date }}</td>
+                    <td>
+                        <a href="{% url 'service_update' view.id %}">Edit</a>
+                        <a href="{% url 'cancel_service' view.id %}" onclick="return confirm('Are you sure you want to cancel this booking?')">Cancel</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">No bookings found.</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+</body>
+</html>
 {% endblock %}
