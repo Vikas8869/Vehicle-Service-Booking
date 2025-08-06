@@ -153,9 +153,10 @@ def forgot_password_view(request):
             messages.success(request, f'OTP sent to {email}')
             return redirect('verify_otp')
         except User.DoesNotExist:
-            messages.error(request, 'Email not found.')
+            messages.error(request, 'Email is not registered.')
 
     return render(request, 'forgot_password.html')
+
 
 def verify_otp_view(request):
     user_id = request.session.get('forgot_user_id')

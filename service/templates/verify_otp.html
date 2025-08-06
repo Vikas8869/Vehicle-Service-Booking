@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Verify OTP</title>
+{% block start %}
     <style>
         body {
             margin: 0;
@@ -101,5 +98,4 @@
         </form>
         <a href="{% url 'forgot_password' %}">Resend OTP</a>
     </div>
-</body>
-</html>
+{% endblock %}
